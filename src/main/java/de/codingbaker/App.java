@@ -17,7 +17,7 @@ public class App
     public static void main( String[] args ) throws IOException, InterruptedException 
     {
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=bingen&appid=0a9c8ad4011df9d68906632d3d421943&units=metric")).build();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={TOKEN}&units=metric")).build();
         
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JSONObject myObject = new JSONObject(response.body());
